@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>hilmancode - template HTML Basic</title>
+  </head>
+  <body>
+    <section id="home">
+      <div class="container">
+        <div class="navwrapper">
+          <ul class="navigation">
+            <li class="nav">
+              <a href="#home" class="navlink">HOME</a>
+            </li>
+            <li class="nav">
+              <a href="#about" class="navlink">ABOUT</a>
+            </li>
+            <li class="nav">
+              <a href="#contact" class="navlink">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+        <div class="contentwrapper">
+          <div class="slideshow">
+            <div
+              class="slide active"
+              style="background-image: url('/img/OIP-removebg-preview.png')"
+            ></div>
+            <div
+              class="slide"
+              style="background-image: url('/img/OIP__1_-removebg-preview.png')"
+            ></div>
+            <div
+              class="slide"
+              style="background-image: url('/img/OIP__2_-removebg-preview.png')"
+            ></div>
+          </div>
+          <h1>Welcome to Our Professional Website</h1>
+          <p>Explore our services and find what suits you best.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container red">
+        <div class="contentwrapper">
+          <h1>ABOUT</h1>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container blue">
+        <div class="contentwrapper">
+          <h1>CONTACT</h1>
+        </div>
+      </div>
+    </section>
+
+    <div class="top" onclick="goToTop()">👆</div>
+
+    <script>
+      const goToTop = () => {
+        return (location.href = "#home");
+      };
+
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+
+      function showNextSlide() {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }
+
+      // Change slide every 3 seconds
+      setInterval(showNextSlide, 3000);
+    </script>
+  </body>
+</html>
